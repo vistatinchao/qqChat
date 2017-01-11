@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  qqChat
+//
+//  Created by mac on 2017/1/11.
+//  Copyright © 2017年 United Network Services Ltd. of Shenzhen City. All rights reserved.
+// pch文件
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+/** Custorm NSLog */
+#ifdef DEBUG
+#define QQLog(...) NSLog(__VA_ARGS__)
+#else
+#define QQLog(...)
+#endif
+
+/** 包含的头文件 */
+
+#import "UIView+QQExtension.h"
+#import "QQConst.h"
+#import "NSString+QQExtension.h"
+
+/* 常用的宏 */
+
+#define QQLogFunc QQLog(@"%s",__func__)
+#define QQNotiCenter [NSNotificationCenter defaultCenter]
+#define QQRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define QQGlobleColor [UIColor colorWithRed:(32)/255.0 green:(186)/255.0 blue:(229)/255.0 alpha:1.0]
+// 随机色
+#define QQRandomColor QQRGBColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define QQScreenW [UIScreen mainScreen].bounds.size.width
+#define QQScreenH [UIScreen mainScreen].bounds.size.height
+#define QQScreenF [UIScreen mainScreen].bounds
+#define QQLastWindow [UIApplication sharedApplication].keyWindow
+#define QQNavBarHeight 64
+#define QQTabBarHeight 49
+
+
+#endif /* PrefixHeader_pch */
