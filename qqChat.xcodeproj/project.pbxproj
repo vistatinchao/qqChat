@@ -19,6 +19,9 @@
 		0430AABE1E262E3C0074C216 /* QQMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0430AABD1E262E3C0074C216 /* QQMessage.m */; };
 		0430AAC11E262E560074C216 /* QQMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0430AAC01E262E560074C216 /* QQMessageCell.m */; };
 		0430AAC41E262F280074C216 /* QQMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0430AAC31E262F280074C216 /* QQMessageFrame.m */; };
+		04A9B8481E27535500D8ED08 /* UIImage+QQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A9B8471E27535500D8ED08 /* UIImage+QQExtension.m */; };
+		04A9B84B1E27797400D8ED08 /* QQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */; };
+		04A9B84D1E2779F400D8ED08 /* QQKeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,11 @@
 		0430AAC01E262E560074C216 /* QQMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQMessageCell.m; sourceTree = "<group>"; };
 		0430AAC21E262F280074C216 /* QQMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQMessageFrame.h; sourceTree = "<group>"; };
 		0430AAC31E262F280074C216 /* QQMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQMessageFrame.m; sourceTree = "<group>"; };
+		04A9B8461E27535500D8ED08 /* UIImage+QQExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QQExtension.h"; sourceTree = "<group>"; };
+		04A9B8471E27535500D8ED08 /* UIImage+QQExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QQExtension.m"; sourceTree = "<group>"; };
+		04A9B8491E27797400D8ED08 /* QQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQKeyboardToolbar.h; sourceTree = "<group>"; };
+		04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQKeyboardToolbar.m; sourceTree = "<group>"; };
+		04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQKeyboardToolbar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,9 @@
 			children = (
 				0430AABF1E262E560074C216 /* QQMessageCell.h */,
 				0430AAC01E262E560074C216 /* QQMessageCell.m */,
+				04A9B8491E27797400D8ED08 /* QQKeyboardToolbar.h */,
+				04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */,
+				04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -165,6 +176,8 @@
 				0430AAB71E26256D0074C216 /* UIView+QQExtension.m */,
 				0430AAB91E26257F0074C216 /* NSString+QQExtension.h */,
 				0430AABA1E26257F0074C216 /* NSString+QQExtension.m */,
+				04A9B8461E27535500D8ED08 /* UIImage+QQExtension.h */,
+				04A9B8471E27535500D8ED08 /* UIImage+QQExtension.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0430AAAD1E2620EC0074C216 /* messages.plist in Resources */,
+				04A9B84D1E2779F400D8ED08 /* QQKeyboardToolbar.xib in Resources */,
 				0430AA991E261D600074C216 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,11 +259,13 @@
 				0430AAAB1E2620C20074C216 /* QQViewController.m in Sources */,
 				0430AAC11E262E560074C216 /* QQMessageCell.m in Sources */,
 				0430AABB1E26257F0074C216 /* NSString+QQExtension.m in Sources */,
+				04A9B84B1E27797400D8ED08 /* QQKeyboardToolbar.m in Sources */,
 				0430AAB41E26250A0074C216 /* QQConst.m in Sources */,
 				0430AA911E261D5F0074C216 /* AppDelegate.m in Sources */,
 				0430AABE1E262E3C0074C216 /* QQMessage.m in Sources */,
 				0430AAB11E2623F60074C216 /* QQNavgationViewController.m in Sources */,
 				0430AA8E1E261D5F0074C216 /* main.m in Sources */,
+				04A9B8481E27535500D8ED08 /* UIImage+QQExtension.m in Sources */,
 				0430AAC41E262F280074C216 /* QQMessageFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +412,7 @@
 				0430AAA21E261D600074C216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

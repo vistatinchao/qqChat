@@ -20,6 +20,7 @@
 #import "UIView+QQExtension.h"
 #import "QQConst.h"
 #import "NSString+QQExtension.h"
+#import "UIImage+QQExtension.h"
 
 /* 常用的宏 */
 

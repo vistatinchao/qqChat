@@ -13,6 +13,7 @@
     QQMessage *message = [[self alloc]init];
     message.text = messageDict[@"text"];
     message.time = messageDict[@"time"];
-    message.type = messageDict[@"type"]
+    message.type = [messageDict[@"type"] integerValue];
+    return message;
 }
 @end

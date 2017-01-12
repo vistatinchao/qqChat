@@ -21,7 +21,8 @@ typedef enum : NSUInteger {
 @property (nonatomic,copy,nullable) NSString *time;
 /**Message谁发的*/
 @property (nonatomic,assign)QQMessageType type;
-
+/**Message是否显示时间*/
+@property (nonatomic,assign,getter=isShowTime)BOOL showTime;
 /**
  字典转模型
  @param messageDict 传过来的字典

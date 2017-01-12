@@ -8,9 +8,18 @@
 
 #import "QQMessageCell.h"
 #import "QQMessageFrame.h"
+#import "QQMessage.h"
 @interface QQMessageCell()
 
+/**时间*/
+@property (nonatomic,weak)UILabel *timeLabel;
+/**正文*/
+@property (nonatomic,weak)UIButton *textBtn;
+/**头像*/
+@property (nonatomic,weak)UIImageView *profileImageView;
+
 @end
+
 @implementation QQMessageCell
 
 #pragma mark QQMessageCell 系统方法
@@ -23,9 +32,40 @@
     }
     return self;
 }
+#pragma mark 初始化cell
++(instancetype)cellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath{
+    QQMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:QQMessageCellID];
+    if (cell==nil) {
+        cell = [[self alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:QQMessageCellID];
+    }
+    return cell;
+}
 
 - (void)setSubView{
 
+    /**时间*/
+    UILabel *timeLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:timeLabel];
+    timeLabel.textAlignment = NSTextAlignmentCenter;
+    timeLabel.font = [UIFont systemFontOfSize:QQMessageCellTimeFontSize];
+    self.timeLabel = timeLabel;
+
+    /**正文*/
+    UIButton *textBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:textBtn];
+    textBtn.titleLabel.numberOfLines = 0;
+    textBtn.titleLabel.font = [UIFont systemFontOfSize:QQMessageCellTextFontSize];
+    [textBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [textBtn setTitleEdgeInsets:UIEdgeInsetsMake(QQMessageCellBtnInsetMargin, QQMessageCellBtnInsetMargin, QQMessageCellBtnInsetMargin, QQMessageCellBtnInsetMargin)];
+    self.textBtn = textBtn;
+
+    /**头像*/
+    UIImageView *profileImageView = [[UIImageView alloc]init];
+    [self.contentView addSubview:profileImageView];
+    //设置圆形
+    profileImageView.layer.cornerRadius = QQMessageCellProfileImageWH*0.5;
+    profileImageView.layer.masksToBounds = YES;
+    self.profileImageView = profileImageView;
 }
 
 #pragma mark QQMessageCell set方法
@@ -44,11 +84,34 @@
 #pragma mark QQMessageCell--PrivateMethod
 - (void)setSubViewFrameWithMessageFrame:(QQMessageFrame *)messageFrame{
 
+    /**时间frame*/
+    self.timeLabel.frame = messageFrame.timeFrame;
+    /**正文frame*/
+    self.textBtn.frame = messageFrame.textFrame;
+    /**头像frame*/
+    self.profileImageView.frame = messageFrame.imageFrame;
 
-    #warning 设置数据
 }
 
 - (void)setSubViewDataWithMessage:(QQMessage *)message{
-      #warning 设置数据
+     /**时间*/
+    self.timeLabel.text = message.time;
+     /**正文*/
+    [self.textBtn setTitle:message.text forState:UIControlStateNormal];
+    UIImage *backgroundImage;
+    UIImage *highlightenBackgroundImage;
+    if (message.type==QQMessageTypeMe) {
+        backgroundImage = [[UIImage imageNamed:@"chat_send_nor"]resizeImage];
+        highlightenBackgroundImage = [[UIImage imageNamed:@"chat_send_press_pic"] resizeImage];
+    }else{
+        backgroundImage = [[UIImage imageNamed:@"chat_recive_nor"] resizeImage];
+        highlightenBackgroundImage = [[UIImage imageNamed:@"chat_recive_press_pic"] resizeImage];
+    }
+    [self.textBtn setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    [self.textBtn setBackgroundImage:highlightenBackgroundImage forState:UIControlStateHighlighted];
+     /**头像*/
+    NSString *image;
+    image = (message.type==QQMessageTypeMe)?@"me":@"other";
+    self.profileImageView.image = [UIImage imageNamed:image];
 }
 @end
