@@ -30,9 +30,39 @@
     self.title = @"2B";
     [self initTableView];
     [self initKeyboardToolbar];
+    // 接收通知
+    [self addNotification];
     
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.messages.count-1 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition: UITableViewScrollPositionBottom animated:YES];
+
+}
+
+#pragma mark 键盘改变通知
+- (void)addNotification{
+
+    [QQNotiCenter addObserver:self selector:@selector(keyboardChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+/**
+ 键盘改变通知
+ */
+- (void)keyboardChangeFrame:(nonnull NSNotification *)noti{
+    // 动画时间
+    CGFloat duration = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    // 键盘最终的Frame
+    CGRect keyboardFrame = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat offsetKeyboardFrameY = keyboardFrame.origin.y-self.view.height;
+
+    [UIView animateWithDuration:duration animations:^{
+        self.view.transform = CGAffineTransformMakeTranslation(0, offsetKeyboardFrameY);
+    }];
+
+}
 #pragma mark 初始化子控件
 
 /**
@@ -47,9 +77,13 @@
     tableView.contentInset = UIEdgeInsetsMake(QQNavBarHeight, 0, 44, 0);
     tableView.scrollIndicatorInsets = tableView.contentInset;
     tableView.separatorStyle =UITableViewCellSeparatorStyleNone;
+    // 不允许选中
     tableView.allowsSelection = NO;
+    // 拽掉tableview的时候退键盘
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [tableView registerClass:[QQMessageCell class] forCellReuseIdentifier:QQMessageCellID];
     self.tableView = tableView;
+
 }
 
 /**
@@ -61,6 +95,7 @@
     toolbar.width = self.view.width;
     toolbar.height = QQKeyboardToolbarHeight;
     toolbar.y = self.view.height-toolbar.height;
+    self.keyboardToolbar = toolbar;
 }
 
 
@@ -86,13 +121,6 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.messages[indexPath.row].cellHeight;
-}
-
-/**
- 滚动tableview
- */
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
 }
 
 #pragma mark lazy-数据源
