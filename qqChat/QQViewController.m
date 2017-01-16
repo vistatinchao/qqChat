@@ -24,6 +24,9 @@
 @implementation QQViewController
 
 #pragma mark 系统方法
+/**
+ view加载完毕
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -35,12 +38,24 @@
     
 }
 
+/**
+ view显示完毕
+ */
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.messages.count-1 inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition: UITableViewScrollPositionBottom animated:YES];
 
 }
+
+/**
+ 移除监听
+ */
+- (void)dealloc{
+    [QQNotiCenter removeObserver:self];
+}
+
+
 
 #pragma mark 键盘改变通知
 - (void)addNotification{

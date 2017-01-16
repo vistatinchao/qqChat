@@ -22,6 +22,7 @@
 		04A9B8481E27535500D8ED08 /* UIImage+QQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A9B8471E27535500D8ED08 /* UIImage+QQExtension.m */; };
 		04A9B84B1E27797400D8ED08 /* QQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */; };
 		04A9B84D1E2779F400D8ED08 /* QQKeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */; };
+		04E60B981E2C842900F8868E /* QQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E60B971E2C842900F8868E /* QQTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		04A9B8491E27797400D8ED08 /* QQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQKeyboardToolbar.h; sourceTree = "<group>"; };
 		04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQKeyboardToolbar.m; sourceTree = "<group>"; };
 		04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQKeyboardToolbar.xib; sourceTree = "<group>"; };
+		04E60B961E2C842900F8868E /* QQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQTextField.h; sourceTree = "<group>"; };
+		04E60B971E2C842900F8868E /* QQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				04A9B8491E27797400D8ED08 /* QQKeyboardToolbar.h */,
 				04A9B84A1E27797400D8ED08 /* QQKeyboardToolbar.m */,
 				04A9B84C1E2779F400D8ED08 /* QQKeyboardToolbar.xib */,
+				04E60B961E2C842900F8868E /* QQTextField.h */,
+				04E60B971E2C842900F8868E /* QQTextField.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E60B981E2C842900F8868E /* QQTextField.m in Sources */,
 				0430AAB81E26256D0074C216 /* UIView+QQExtension.m in Sources */,
 				0430AAAB1E2620C20074C216 /* QQViewController.m in Sources */,
 				0430AAC11E262E560074C216 /* QQMessageCell.m in Sources */,
